@@ -86,8 +86,8 @@
             def.facets = findFacets(elements);
        }
 
-       if(def.facets.length == 0) {
-          def.facets.push(elements.selector)
+       if(def.facets.length < 2) {
+          def.facets = [elements.selector]
        }
 
       return def;
