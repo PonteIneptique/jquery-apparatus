@@ -36,15 +36,24 @@
             $output.push($current[0][i]);
           }
         }
+        if($current[1].length > 0 && $current[0].length > 0) {
+          for(var i = 0; i < $current[1].length; i++) {
+            if($all === true) {
+              $output.push($current[1][i]);
+            }
+            for(var j = 0; j < $current[0].length; j++) {
+              $output.push($current[0][j] + $current[1][i]);
+            }
+          }
+        } else if ($current[1].length > 0) {
         for(var i = 0; i < $current[1].length; i++) {
-          if($all === true) {
-            $output.push($current[1][i]);
+             $output.push($current[1][i]);
           }
-          
-          for(var j = 0; j < $current[0].length; j++) {
-            $output.push($current[0][j] + $current[1][i]);
+        } else if ($current[0].length > 0) {
+        for(var i = 0; i < $current[0].length; i++) {
+             $output.push($current[0][i]);
           }
-          
+
         }
         
         if($array.length > 2) {
@@ -146,6 +155,7 @@
                on élimine la classe.
                addClass pour voir tout 
             */
+
             params.selector = getSelector(params);
             if(params.selector == params.target) {
                $(params.target).removeClass(params.active);
